@@ -1,0 +1,22 @@
+{
+  "name": "rpi-homeserver-dhcp",
+  "version": "1.0.0",
+  "description": "Example of how to create a rpi-homeserver module",
+  "main": "build/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "npm run docker:run node ./src/index.js",
+    "docker:run": "npx cross-var docker-compose run --rm --service-ports dev",
+    "docker:shell": "npm run docker:run /bin/sh",
+    "docker:build:dev": "docker-compose build dev",
+    "docker:build:prod": "npx cross-var docker build -t airtonix/$npm_package_name:$npm_package_version ."
+  },
+  "dependencies": {
+    "nconf": "0.9.1",
+    "remount-router": "0.2.1",
+    "express-openapi": "1.0.1",
+    "dhcp": "0.2.9"
+  }
+}

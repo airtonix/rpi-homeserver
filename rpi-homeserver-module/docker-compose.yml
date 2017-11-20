@@ -1,0 +1,19 @@
+version: "2.0"
+
+services:
+
+  dev:
+    image: rpi-homeserver-module:dev
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    command: node ./src/index.js
+    environment:
+    - DEBUG=*
+    - PORT=3000
+    ports:
+    - 3000:3000
+    volumes:
+    - "./src:/app/src"
+    - "./package.json:/app/package.json"
+    - "./package-lock.json:/app/package-lock.json"
