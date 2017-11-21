@@ -1,0 +1,24 @@
+{
+  "name": "rpi-homeserver-module",
+  "version": "1.0.0",
+  "description": "Example of how to create a rpi-homeserver module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "npm run docker:run -- npm run container:server",
+    "container:server": "node ./src/index.js",
+    "docker:run": "docker-compose run --rm --service-ports dev",
+    "docker:shell": "npm run docker:run /bin/sh",
+    "docker:build": "docker-compose build dev"
+  },
+  "dependencies": {
+    "debug": "3.1.0",
+    "nconf": "0.9.1",
+    "remount-router": "0.2.1",
+    "body-parser": "1.18.2",
+    "express-openapi": "1.0.1",
+    "quarry-dns": "0.6.2"
+  }
+}

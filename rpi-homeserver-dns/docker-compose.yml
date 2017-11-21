@@ -1,0 +1,24 @@
+version: "2.0"
+
+services:
+
+  dev:
+    image: rpi-homeserver-dns:dev
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: node ./src/index.js
+    environment:
+    - DEBUG=*
+    - PORT=3000
+    ports:
+    - "3000:3000"
+    - "5353:5353"
+    - "53:53"
+    volumes:
+    - "./src:/app/src"
+    - "./db/:/var/lib/quarry/"
+    - "./config.json:/app/config.json"
+    - "./package.json:/app/package.json"
+    - "./package-lock.json:/app/package-lock.json"
+    - "/var/run/docker.sock:/var/run/docker.sock:ro"

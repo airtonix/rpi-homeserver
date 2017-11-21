@@ -1,0 +1,7 @@
+{
+    "port": 3000,
+    "dns": {
+        "persistence": "disk",
+        "file-location": "/var/lib/quarry/database.json"
+    }
+}
